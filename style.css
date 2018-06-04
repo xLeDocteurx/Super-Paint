@@ -1,0 +1,22 @@
+html,
+body {
+  /* overflow-x: hidden; //Prevent scroll on narrow devices */
+
+  /* font-size: small;
+  line-height: 1; */
+}
+
+#wanted {
+
+  display: none;
+}
+
+.card {
+
+  /* width: 500px; */
+}
+
+.card img {
+
+  width: 250px;
+}

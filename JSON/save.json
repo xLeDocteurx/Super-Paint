@@ -1,0 +1,48 @@
+{
+    "users" : [
+        {
+            "nom" : "Devernay",
+            "prenom" : "Laurent",
+            "age" : 1309,
+            "alignement" : "Chaotique Bon",
+            "classe" : "Transmutateur",
+            "crime" : "avoir piraté la NSA pendant une phase de somnambulisme",
+            "localisation" : "au Grilladou",
+            "prime" : 10000,
+            "src" : "img/01.jpg"
+        },
+        {
+            "nom" : "Inconnu",
+            "prenom" : "Gena",
+            "age" : "inconnu",
+            "alignement" : "Loyal Bon",
+            "classe" : "Paladin",
+            "crime" : "s'être associée à L'aurent Devernay",
+            "localisation" : "au Grilladou",
+            "prime" : 5000,
+            "src" : "img/02.jpg"
+        },
+        {
+            "nom" : "Quaterman",
+            "prenom" : "Allan",
+            "age" : 27,
+            "alignement" : "Neutre Bon",
+            "classe" : "Voleur Illusioniste",
+            "crime" : "recel de Python",
+            "localisation" : "sur l'ile de tortue géniale",
+            "prime" : 25000,
+            "src" : "img/022.jpg"
+        },
+        {
+            "nom" : "Le",
+            "prenom" : "Viktor",
+            "age" : "inconnu",
+            "alignement" : "Neutre Mauvais",
+            "classe" : "Casseur de jambes",
+            "crime" : "avoir cassé trop de jambes",
+            "localisation" : "dans un ossuaire",
+            "prime" : 100000,
+            "src" : "img/03.jpg"
+        }
+    ]
+}
