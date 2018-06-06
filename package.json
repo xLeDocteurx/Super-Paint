@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "",
+  "description": "node server",
+  "version": "",
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "express": "^4.16.3",
+    "firebase": "^5.0.4",
+    "jquery": "^3.3.1",
+    "request": "^2.87.0"
+  }
+}
