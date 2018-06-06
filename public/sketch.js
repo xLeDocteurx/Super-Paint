@@ -2,9 +2,8 @@ var offset = 100;
 
 function setup() {
 
-    createCanvas(windowWidth, windowHeight);
-    // background(255);
-    // frameRate(120);
+    createCanvas(500, 500);
+    background(255);
 }
 
 function draw() {
@@ -17,7 +16,7 @@ function draw() {
     }
 }
 
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
-    // background(255);
-}
+// function windowResized() {
+//     resizeCanvas(windowWidth, windowHeight);
+//     // background(255);
+// }

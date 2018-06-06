@@ -6,18 +6,16 @@
 
 let webPort = 8080;
 
-
+let socket = require('socket.io');
 let express = require('express');
-let app = express();
 
 console.log('My server is running');
 
-let socket = require('socket.io');
 // socket.listen(`http://localhost:${webPort}`);
-
-let server = app.listen(webPort);
+let app = express();
 app.use(express.static('public'));
 
+let server = app.listen(webPort);
 let io = socket(server);
 
 io.on('connnection', (socket) => {
