@@ -7,10 +7,11 @@
 	<title>Far Worst Weather Machine</title>
 	<link rel="shortcut icon" type="image/png" href="favicon.png">
 
-	<!-- <script language="javascript" type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script> -->
+	<script language="javascript" type="text/javascript" src="jquery.js"></script>
 	<!-- <script language="javascript" type="text/javascript" src="js/frameworks/popper.js"></script> -->
 	<!-- <script language="javascript" type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script> -->
 	<!-- <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" /> -->
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 
 	<link rel="stylesheet" href="style.css">
 
@@ -25,6 +26,14 @@
 	<main class="container-fluid">
 		<!-- Is this real life
 		<br> Or is it just fantasy ? -->
+		<div class="row  h-50">
+			<div id="userlist_container" class="col-md-3">
+
+			</div>
+			<div id="canvas_container" class="col-md-9 d-flex justify-content-center align-items-center">
+
+			</div>
+		</div>
 	</main>
 
 	<footer class="row fixed-bottom">
@@ -32,6 +41,8 @@
 	</footer>
 
 	<!-- Scripts -->
+
+	<script language="javascript" type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 
 	<script language="javascript" type="text/javascript" src="socket.io.js"></script>
 	<script language="javascript" type="text/javascript" src="p5/p5.js"></script>

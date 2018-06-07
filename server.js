@@ -37,25 +37,26 @@ io.on('connection', (socket) => {
   console.log("Connection ID : " + socket.id);
 
   allClients.push(socket);
-  console.log("New connected users list : ");
-  console.log(allClients);
+  // console.log("New connected users list : ");
+  // console.log(allClients);
 
-  socket.on('mouse', mouseData);
-
-  function mouseData(data) {
+  socket.on('mouse', function mouseData(data) {
 
     socket.broadcast.emit('mouse', data);
     // io.sockets.emit('mouse', data);
-  }
+  });
 
   socket.on('disconnect', function () {
     console.log(socket.id + ' // Got disconnect!');
     var i = allClients.indexOf(socket);
 
     allClients.splice(i, 1);
-    console.log("New connected users list : ");
-    console.log(allClients);
+    // console.log("New connected users list : ");
+    // console.log(allClients);
   });
+
 });
 
-
+function refresh_userlist () {
+  
+}

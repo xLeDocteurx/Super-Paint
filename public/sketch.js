@@ -1,10 +1,12 @@
 let socket;
 
 let offset = 100;
+let canvas_container = document.getElementById("canvas_container");
 
 function setup() {
 
-    createCanvas(500, 500);
+    let canvas = createCanvas(canvas_container.clientWidth, windowHeight);
+    canvas.parent("#canvas_container");
     background(255);
 
     socket = io.connect('http://localhost:3000');
@@ -61,7 +63,7 @@ function newDrawing(data) {
 
 // Si la fenetre est redimentionnée :
 
-// function windowResized() {
-//     resizeCanvas(windowWidth, windowHeight);
-//     // background(255);
-// }
+function windowResized() {
+    resizeCanvas(canvas_container.clientWidth, windowHeight);
+    background(255);
+}
