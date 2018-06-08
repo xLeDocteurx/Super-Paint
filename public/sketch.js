@@ -70,6 +70,10 @@ function newDrawing(data) {
     line(data.px, data.py, data.x, data.y);
 }
 
+function refresh() {
+    background(255);
+}
+
 function chose_color(value) {
     chosen_color = value;
 }
