@@ -13,7 +13,7 @@ function setup() {
     canvas.parent("#canvas_container");
     background(255);
 
-    socket = io.connect('http://localhost:3000');
+    socket = io.connect();
     socket.on('mouse', newDrawing);
 
     strokeWeight(4);
