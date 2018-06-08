@@ -14,6 +14,7 @@ function setup() {
 
     socket = io.connect();
     socket.on('mouse', newDrawing);
+    socket.on('refresh', refresh);
 
     strokeWeight(4);
 }
@@ -70,6 +71,10 @@ function newDrawing(data) {
     line(data.px, data.py, data.x, data.y);
 }
 
+function send_refresh() {
+    socket.emit('refresh');
+}
+
 function refresh() {
     background(255);
 }
@@ -78,10 +83,7 @@ function chose_color(value) {
     chosen_color = value;
 }
 
-
-
 // Si la fenetre est redimentionnée :
-
 function windowResized() {
     resizeCanvas(canvas_container.clientWidth, windowHeight);
     background(255);

@@ -41,8 +41,13 @@ io.on('connection', (socket) => {
   // console.log(allClients);
 
   socket.on('mouse', function mouseData(data) {
-    //socket.broadcast.emit('mouse', data);
+    //socket.emit('mouse', data);
      socket.broadcast.emit('mouse', data);
+  });
+
+  socket.on('refresh', function refresh(data) {
+    //socket.emit('mouse', data);
+     socket.emit('refresh');
   });
 
   socket.on('disconnect', function () {
