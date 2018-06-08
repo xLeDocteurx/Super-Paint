@@ -3,9 +3,8 @@ let socket;
 let offset = 100;
 let canvas_container = document.getElementById("canvas_container");
 
-let rr;
-let gg;
-let bb;
+let chosen_color = 125;
+let chosen_tool = "line";
 
 function setup() {
 
@@ -32,23 +31,16 @@ function draw() {
             y: mouseY,
             px: pmouseX,
             py: pmouseY,
-            r: rr,
-            g: gg,
-            b: bb
+            tool: chosen_tool,
+            color: chosen_color
         };
 
         socket.emit('mouse', data);
 
         // console.log(`mouse position when clicked : x = ${data.x}, y=${data.y} // px = ${data.px}, py=${data.py}}`)
         // console.log(`color chose n at that moment : r=${rr} g=${gg} b=${bb}`)
-        drawing(rr, gg, bb);
+        drawing(chosen_tool, chosen_color);
         // draw();
-    } else {
-
-        console.log(`Ready to rumble colors : `);
-        rr = Math.random() * 255;
-        gg = Math.random() * 255;
-        bb = Math.random() * 255;
     }
 }
 
@@ -58,23 +50,28 @@ function draw() {
 
 // }
 
-function drawing(r, g, b) {
+function drawing(tool, color) {
 
-    stroke(r, g, b);
+    if (tool == "line") {
+        stroke(color);
+        line(mouseX, mouseY, pmouseX, pmouseY);
+    }
     // noStroke();
-    // fill(r, g, b);
     // ellipse(mouseX, mouseY, 30, 30);
-    line(mouseX, mouseY, pmouseX, pmouseY);
 }
 
 function newDrawing(data) {
 
-    stroke(data.r, data.g, data.b);
+    stroke(data.color);
     // line(data.px, data.py, data.x, data.y);
     // noStroke();
     // fill(data.r, data.g, data.b);
     // ellipse(data.x, data.y, 30, 30);
     line(data.px, data.py, data.x, data.y);
+}
+
+function chose_color(value) {
+    chosen_color = value;
 }
 
 

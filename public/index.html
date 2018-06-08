@@ -28,10 +28,14 @@
 		<br> Or is it just fantasy ? -->
 		<div class="row">
 			<div id="userlist_container" class="col-md-3">
-				<div class="m-3">
-					<label for="colorchoice">Choose some color</label><br>
-					<input name="colorchoice" type="color" class="w-100">
-				</div>
+					<div class="m-3">
+						<label for="colorchoice">Choose some color</label><br>
+						<input id="chosen_color" name="colorchoice" type="color" class="w-100" onchange="chose_color(this.value)">
+					</div>
+					<div class="m-3">
+						<label for="toolchoice">Choose some color</label><br>
+						<input id="" name="toolchoice" type="color" class="w-100" onchange="chose_color(this.value)">
+					</div>
 			</div>
 			<div id="canvas_container" class="col-md-9 d-flex justify-content-center align-items-center">
 
