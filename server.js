@@ -24,7 +24,7 @@ let app = express();
 // socket.listen(`http://localhost:${webPort}`);
 app.use(express.static('public'));
 
-let server = app.listen(webPort);
+let server = app.listen(process.env.PORT || webport);
 
 console.log('My server is running');
 

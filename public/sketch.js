@@ -17,6 +17,7 @@ function setup() {
     socket.on('refresh', refresh);
 
     strokeWeight(4);
+
 }
 
 function draw() {
@@ -47,8 +48,6 @@ function draw() {
 
 // function mouseDragged() {
 //     console.log("Sendi ng : x-" + mouseX + " , y-" + mouseY);
-
-
 // }
 
 function drawing(tool, color) {
@@ -81,6 +80,13 @@ function refresh() {
 
 function chose_color(value) {
     chosen_color = value;
+}
+
+function chose_weight(value) {
+    if (value > 10 || value < 0.1) {
+        value = 10;
+    } 
+    strokeWeight(value);
 }
 
 // Si la fenetre est redimentionnée :
