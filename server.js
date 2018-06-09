@@ -22,7 +22,7 @@ let app = express();
 // socket.listen(`http://localhost:${webPort}`);
 app.use(express.static('public'));
 
-let server = app.listen(webPort);
+let server = app.listen(process.env.PORT || webPort);
 
 console.log('My server is running');
 
@@ -39,8 +39,13 @@ io.on('connection', (socket) => {
   // console.log(allClients);
 
   socket.on('mouse', function mouseData(data) {
-    //socket.broadcast.emit('mouse', data);
-     socket.broadcast.emit('mouse', data);
+    //socket.emit('mouse', data);
+    socket.broadcast.emit('mouse', data);
+  });
+
+  socket.on('refresh', function () {
+    //socket.emit('mouse', data);
+    socket.broadcast.emit('refresh');
   });
 
   socket.on('disconnect', function () {
@@ -54,6 +59,6 @@ io.on('connection', (socket) => {
 
 });
 
-function refresh_userlist () {
-  
+function refresh_userlist() {
+
 }

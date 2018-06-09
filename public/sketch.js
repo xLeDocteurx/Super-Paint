@@ -14,8 +14,10 @@ function setup() {
 
     socket = io.connect();
     socket.on('mouse', newDrawing);
+    socket.on('refresh', refresh);
 
     strokeWeight(4);
+
 }
 
 function draw() {
@@ -46,8 +48,6 @@ function draw() {
 
 // function mouseDragged() {
 //     console.log("Sendi ng : x-" + mouseX + " , y-" + mouseY);
-
-
 // }
 
 function drawing(tool, color) {
@@ -70,14 +70,27 @@ function newDrawing(data) {
     line(data.px, data.py, data.x, data.y);
 }
 
+function send_refresh() {
+    socket.emit('refresh');
+}
+
+function refresh() {
+    console.log("J'ai recu une demande de refresh de la part du serveur.");
+    background(255);
+}
+
 function chose_color(value) {
     chosen_color = value;
 }
 
-
+function chose_weight(value) {
+    if (value > 10 || value < 0.1) {
+        value = 10;
+    } 
+    strokeWeight(value);
+}
 
 // Si la fenetre est redimentionnée :
-
 function windowResized() {
     resizeCanvas(canvas_container.clientWidth, windowHeight);
     background(255);
