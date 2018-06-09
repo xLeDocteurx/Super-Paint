@@ -42,12 +42,12 @@ io.on('connection', (socket) => {
 
   socket.on('mouse', function mouseData(data) {
     //socket.emit('mouse', data);
-     socket.broadcast.emit('mouse', data);
+    socket.broadcast.emit('mouse', data);
   });
 
-  socket.on('refresh', function refresh(data) {
+  socket.on('refresh', function () {
     //socket.emit('mouse', data);
-     socket.broadcast.emit('refresh');
+    socket.broadcast.emit('refresh');
   });
 
   socket.on('disconnect', function () {
@@ -61,6 +61,6 @@ io.on('connection', (socket) => {
 
 });
 
-function refresh_userlist () {
-  
+function refresh_userlist() {
+
 }
