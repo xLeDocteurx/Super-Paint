@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
 
   socket.on('refresh', function refresh(data) {
     //socket.emit('mouse', data);
-     socket.emit('refresh');
+     socket.broadcast.emit('refresh');
   });
 
   socket.on('disconnect', function () {
