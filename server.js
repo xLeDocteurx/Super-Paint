@@ -5,10 +5,8 @@
 // const EventEmitter = require('events');
 
 let allClients = [];
-
 let webPort = 3000;
 let express = require('express');
-
 let app = express();
 
 
