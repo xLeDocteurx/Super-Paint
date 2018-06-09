@@ -75,6 +75,7 @@ function send_refresh() {
 }
 
 function refresh() {
+    console.log("J'ai recu une demande de refresh de la part du serveur.");
     background(255);
 }
 
