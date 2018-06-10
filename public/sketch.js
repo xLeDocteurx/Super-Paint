@@ -92,9 +92,11 @@ function drawing(tool, color) {
         quad(mouseX, mouseY, mouseX+20, mouseY+35, mouseX-30, mouseY-40,mouseX+40,mouseY-59);
         break;
         case "Rekt"://Il faut rigoler dans la vie 
+        stroke(color);
         rect(mouseX-50,mouseY-28,third_part,fourth_part)
         break;
         case "Triangle":
+        stroke(color);
         triangle(mouseX-15, mouseY-15, mouseX+15, mouseY-15, mouseX, mouseY+15);
         break;
     }
@@ -130,9 +132,11 @@ function newDrawing(data) {
         quad(data.x, data.y, data.x+20, data.y+35, data.x-30, data.y-40,data.x+40,data.y-59);
         break;
         case "Rekt"://Il faut rigoler dans la vie 
+        stroke(data.color);
         rect(data.x-50,data.y-28,data.g,data.u)
         break;
         case "Triangle":
+        stroke(data.color);
         triangle(data.x-15, data.y-15, data.x+15, data.y-15, data.x, data.y+15);
         break;
     }
