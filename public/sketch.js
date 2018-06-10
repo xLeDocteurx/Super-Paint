@@ -86,13 +86,25 @@ function drawing(tool, color) {
 }
 
 function newDrawing(data) {
-
     stroke(data.color);
-    // line(data.px, data.py, data.x, data.y);
-    // noStroke();
-    // fill(data.r, data.g, data.b);
-    // ellipse(data.x, data.y, 30, 30);
-    line(data.px, data.py, data.x, data.y);
+        switch(data.tool){
+        case "Line":
+        stroke(data.color);
+        line(data.x, data.y, data.px, data.py);
+        break;
+        case "Ellipse":
+        stroke(data.color);
+        ellipse(data.x,data.y,55,55);
+        break;
+        case "Arc":
+        stroke(data.color);
+        arc(data.x, data.y, 50, 50, 0, 60);
+        break;
+        case "Quad":
+        stroke(data.color);
+        quad(data.x, data.y, data.x+20, data.y+35, data.x-30, data.y-40);
+        break;
+    }
 }
 
 function send_refresh() {
