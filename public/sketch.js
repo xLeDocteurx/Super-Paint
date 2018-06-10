@@ -4,7 +4,11 @@ let offset = 100;
 let canvas_container = document.getElementById("canvas_container");
 
 let chosen_color = 125;
-let chosen_tool = "line";
+let chosen_tool = "Line";
+$(':button').click(function(){
+    chosen_tool=$(this).val();
+    console.log($(this).val());
+});
 
 function setup() {
 
@@ -51,11 +55,32 @@ function draw() {
 // }
 
 function drawing(tool, color) {
-
-    if (tool == "line") {
+    switch(tool){
+        case "Line":
         stroke(color);
         line(mouseX, mouseY, pmouseX, pmouseY);
+        break;
+        case "Ellipse":
+        stroke(color);
+        ellipse(mouseX,mouseY,55,55);
+        break;
+        case "Arc":
+        stroke(color);
+        arc(mouseX, mouseY, 50, 50, 0, 60);
+        break;
+        case "Quad":
+        stroke(color);
+        quad(mouseX, mouseY, mouseX+20, mouseY+35, mouseX-30, mouseY-40);
+        break;
     }
+/*    if (tool == "Line") {
+        stroke(color);
+        line(mouseX, mouseY, pmouseX, pmouseY);
+    }if (tool =="Ellipse"){
+        stroke(color);
+        ellipse(mouseX,mouseY,55,55)
+    }*/
+
     // noStroke();
     // ellipse(mouseX, mouseY, 30, 30);
 }
