@@ -66,7 +66,7 @@ function drawing(tool, color) {
         break;
         case "Arc":
         stroke(color);
-        arc(mouseX, mouseY, 50, 50, 0, 60);
+        arc(mouseX, mouseY, 50, 50, 0, 90);
         break;
         case "Quad":
         stroke(color);
@@ -104,7 +104,7 @@ function newDrawing(data) {
         break;
         case "Arc":
         stroke(data.color);
-        arc(data.x, data.y, 50, 50, 0, 60);
+        arc(data.x, data.y, 50, 50, 0, 90);
         break;
         case "Quad":
         stroke(data.color);
