@@ -70,7 +70,13 @@ function drawing(tool, color) {
         break;
         case "Quad":
         stroke(color);
-        quad(mouseX, mouseY, mouseX+20, mouseY+35, mouseX-30, mouseY-40);
+        quad(mouseX, mouseY, mouseX+20, mouseY+35, mouseX-30, mouseY-40,mouseX+40,mouseY-59);
+        break;
+        case "Rekt"://Il faut rigoler dans la vie 
+        rect(mouseX-50,mouseY-28,100,56)
+        break;
+        case "Triangle":
+        triangle(mouseX-15, mouseY-15, mouseX+15, mouseY-15, mouseX, mouseY+15);
         break;
     }
 /*    if (tool == "Line") {
@@ -87,7 +93,7 @@ function drawing(tool, color) {
 
 function newDrawing(data) {
     stroke(data.color);
-        switch(data.tool){
+    switch(data.tool){
         case "Line":
         stroke(data.color);
         line(data.x, data.y, data.px, data.py);
@@ -102,7 +108,13 @@ function newDrawing(data) {
         break;
         case "Quad":
         stroke(data.color);
-        quad(data.x, data.y, data.x+20, data.y+35, data.x-30, data.y-40);
+        quad(data.x, data.y, data.x+20, data.y+35, data.x-30, data.y-40,data.x+40,data.y-59);
+        break;
+        case "Rekt"://Il faut rigoler dans la vie 
+        rect(data.x-50,data.y-28,100,56)
+        break;
+        case "Triangle":
+        triangle(data.x-15, data.y-15, data.x+15, data.y-15, data.x, data.y+15);
         break;
     }
 }
