@@ -43,8 +43,9 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('mouse', data);
   });
 
-  socket.on('refresh', function () {
+  socket.on('refresh', function() {
     //socket.emit('mouse', data);
+    console.log("Refresh demandé sur le serveur");
     socket.broadcast.emit('refresh');
   });
 
