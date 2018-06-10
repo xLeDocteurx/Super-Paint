@@ -1,29 +1,30 @@
 let socket;
 
+let angle;
 let offset = 100;
 let canvas_container = document.getElementById("canvas_container");
 
 let chosen_color = 125;
 let chosen_tool = "Line";
-let third_part= 50;
-let fourth_part=50;
-$(':button').click(function(){
-    chosen_tool=$(this).val();
+let third_part = 50;
+let fourth_part = 50;
+$(':button').click(function () {
+    chosen_tool = $(this).val();
 });
-$('.three').submit(function(){
-    dieu_t=Number($('#three').val());
-    if(isNaN(dieu_t)){
+$('.three').submit(function () {
+    dieu_t = Number($('#three').val());
+    if (isNaN(dieu_t)) {
         alert('veuillez rentrer un nombre uniquement')
-    }else {
-        third_part=dieu_t
+    } else {
+        third_part = dieu_t
     }
 });
-$('.four').submit(function(){
-    deesse_t=Number($('#four').val());
-    if(isNaN(deesse_t)){
+$('.four').submit(function () {
+    deesse_t = Number($('#four').val());
+    if (isNaN(deesse_t)) {
         alert('Entrez uniquement un nombre !')
-    }else {
-        fourth_part=deesse_t;
+    } else {
+        fourth_part = deesse_t;
     }
 });
 
@@ -74,39 +75,57 @@ function draw() {
 // }
 
 function drawing(tool, color) {
-    switch(tool){
+    switch (tool) {
         case "Line":
-        stroke(color);
-        line(mouseX, mouseY, pmouseX, pmouseY);
-        break;
+            stroke(color);
+            line(mouseX, mouseY, pmouseX, pmouseY);
+            break;
         case "Ellipse":
-        stroke(color);
-        ellipse(mouseX,mouseY,55,55);
-        break;
+            stroke(color);
+            ellipse(mouseX, mouseY, 55, 55);
+            break;
         case "Arc":
-        stroke(color);
-        arc(mouseX, mouseY, 50, 50, third_part, fourth_part);
-        break;
+            stroke(color);
+            arc(mouseX, mouseY, 50, 50, third_part, fourth_part);
+            break;
         case "Quad":
-        stroke(color);
-        quad(mouseX, mouseY, mouseX+20, mouseY+35, mouseX-30, mouseY-40,mouseX+40,mouseY-59);
-        break;
+            stroke(color);
+            quad(mouseX, mouseY, mouseX + 20, mouseY + 35, mouseX - 30, mouseY - 40, mouseX + 40, mouseY - 59);
+            break;
         case "Rekt"://Il faut rigoler dans la vie 
-        stroke(color);
-        rect(mouseX-50,mouseY-28,third_part,fourth_part)
-        break;
+            stroke(color);
+            rect(mouseX - 50, mouseY - 28, third_part, fourth_part)
+            break;
         case "Triangle":
-        stroke(color);
-        triangle(mouseX-15, mouseY-15, mouseX+15, mouseY-15, mouseX, mouseY+15);
-        break;
+            stroke(color);
+            triangle(mouseX - 15, mouseY - 15, mouseX + 15, mouseY - 15, mouseX, mouseY + 15);
+            break;
+        case "Spray":
+            spray();
+            break;
     }
-/*    if (tool == "Line") {
-        stroke(color);
-        line(mouseX, mouseY, pmouseX, pmouseY);
-    }if (tool =="Ellipse"){
-        stroke(color);
-        ellipse(mouseX,mouseY,55,55)
-    }*/
+
+    function spray() {
+        if (mouseIsPressed === true) {
+            angle += 5;
+            var val = cos(radians(angle)) * 12.0;
+            for (var a = 0; a < 360; a += 75) {
+                var xoff = cos(radians(a)) * val;
+                var yoff = sin(radians(a)) * val;
+                fill(0);
+                ellipse(mouseX + xoff, mouseY + yoff, val, val);
+            }
+            fill(255);
+            ellipse(mouseX, mouseY, 2, 2);
+        }
+    }
+    /*    if (tool == "Line") {
+            stroke(color);
+            line(mouseX, mouseY, pmouseX, pmouseY);
+        }if (tool =="Ellipse"){
+            stroke(color);
+            ellipse(mouseX,mouseY,55,55)
+        }*/
 
     // noStroke();
     // ellipse(mouseX, mouseY, 30, 30);
@@ -114,31 +133,31 @@ function drawing(tool, color) {
 
 function newDrawing(data) {
     stroke(data.color);
-    switch(data.tool){
+    switch (data.tool) {
         case "Line":
-        stroke(data.color);
-        line(data.x, data.y, data.px, data.py);
-        break;
+            stroke(data.color);
+            line(data.x, data.y, data.px, data.py);
+            break;
         case "Ellipse":
-        stroke(data.color);
-        ellipse(data.x,data.y,55,55);
-        break;
+            stroke(data.color);
+            ellipse(data.x, data.y, 55, 55);
+            break;
         case "Arc":
-        stroke(data.color);
-        arc(data.x, data.y, 50, 50, data.g, data.u);
-        break;
+            stroke(data.color);
+            arc(data.x, data.y, 50, 50, data.g, data.u);
+            break;
         case "Quad":
-        stroke(data.color);
-        quad(data.x, data.y, data.x+20, data.y+35, data.x-30, data.y-40,data.x+40,data.y-59);
-        break;
+            stroke(data.color);
+            quad(data.x, data.y, data.x + 20, data.y + 35, data.x - 30, data.y - 40, data.x + 40, data.y - 59);
+            break;
         case "Rekt"://Il faut rigoler dans la vie 
-        stroke(data.color);
-        rect(data.x-50,data.y-28,data.g,data.u)
-        break;
+            stroke(data.color);
+            rect(data.x - 50, data.y - 28, data.g, data.u)
+            break;
         case "Triangle":
-        stroke(data.color);
-        triangle(data.x-15, data.y-15, data.x+15, data.y-15, data.x, data.y+15);
-        break;
+            stroke(data.color);
+            triangle(data.x - 15, data.y - 15, data.x + 15, data.y - 15, data.x, data.y + 15);
+            break;
     }
 }
 
@@ -159,7 +178,7 @@ function chose_color(value) {
 function chose_weight(value) {
     if (value > 10 || value < 0.1) {
         value = 10;
-    } 
+    }
     strokeWeight(value);
 }
 
