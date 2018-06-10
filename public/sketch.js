@@ -71,6 +71,7 @@ function newDrawing(data) {
 }
 
 function send_refresh() {
+    refresh();
     socket.emit('refresh');
 }
 
