@@ -5,9 +5,26 @@ let canvas_container = document.getElementById("canvas_container");
 
 let chosen_color = 125;
 let chosen_tool = "Line";
+let third_part= 50;
+let fourth_part=50;
 $(':button').click(function(){
     chosen_tool=$(this).val();
-    console.log($(this).val());
+});
+$('.three').submit(function(){
+    dieu_t=Number($('#three').val());
+    if(isNaN(dieu_t)){
+        alert('veuillez rentrer un nombre uniquement')
+    }else {
+        third_part=dieu_t
+    }
+});
+$('.four').submit(function(){
+    deesse_t=Number($('#four').val());
+    if(isNaN(deesse_t)){
+        alert('Entrez uniquement un nombre !')
+    }else {
+        fourth_part=deesse_t;
+    }
 });
 
 function setup() {
@@ -38,7 +55,9 @@ function draw() {
             px: pmouseX,
             py: pmouseY,
             tool: chosen_tool,
-            color: chosen_color
+            color: chosen_color,
+            g: third_part,
+            u: fourth_part
         };
 
         socket.emit('mouse', data);
@@ -66,11 +85,17 @@ function drawing(tool, color) {
         break;
         case "Arc":
         stroke(color);
-        arc(mouseX, mouseY, 50, 50, 0, 60);
+        arc(mouseX, mouseY, 50, 50, third_part, fourth_part);
         break;
         case "Quad":
         stroke(color);
-        quad(mouseX, mouseY, mouseX+20, mouseY+35, mouseX-30, mouseY-40);
+        quad(mouseX, mouseY, mouseX+20, mouseY+35, mouseX-30, mouseY-40,mouseX+40,mouseY-59);
+        break;
+        case "Rekt"://Il faut rigoler dans la vie 
+        rect(mouseX-50,mouseY-28,third_part,fourth_part)
+        break;
+        case "Triangle":
+        triangle(mouseX-15, mouseY-15, mouseX+15, mouseY-15, mouseX, mouseY+15);
         break;
     }
 /*    if (tool == "Line") {
@@ -87,7 +112,7 @@ function drawing(tool, color) {
 
 function newDrawing(data) {
     stroke(data.color);
-        switch(data.tool){
+    switch(data.tool){
         case "Line":
         stroke(data.color);
         line(data.x, data.y, data.px, data.py);
@@ -98,11 +123,17 @@ function newDrawing(data) {
         break;
         case "Arc":
         stroke(data.color);
-        arc(data.x, data.y, 50, 50, 0, 60);
+        arc(data.x, data.y, 50, 50, data.g, data.u);
         break;
         case "Quad":
         stroke(data.color);
-        quad(data.x, data.y, data.x+20, data.y+35, data.x-30, data.y-40);
+        quad(data.x, data.y, data.x+20, data.y+35, data.x-30, data.y-40,data.x+40,data.y-59);
+        break;
+        case "Rekt"://Il faut rigoler dans la vie 
+        rect(data.x-50,data.y-28,data.g,data.u)
+        break;
+        case "Triangle":
+        triangle(data.x-15, data.y-15, data.x+15, data.y-15, data.x, data.y+15);
         break;
     }
 }
