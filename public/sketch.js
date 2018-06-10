@@ -10,13 +10,21 @@ let fourth_part=50;
 $(':button').click(function(){
     chosen_tool=$(this).val();
 });
-$('.three').click(function(){
-    third_part=$('#three').val();
-    console.log(third_part)
+$('.three').submit(function(){
+    dieu_t=Number($('#three').val());
+    if(isNaN(dieu_t)){
+        alert('veuillez rentrer un nombre uniquement')
+    }else {
+        third_part=dieu_t
+    }
 });
-$('.four').click(function(){
-    fourth_part=$('#four').val();
-    console.log(fourth_part)
+$('.four').submit(function(){
+    deesse_t=Number($('#four').val());
+    if(isNaN(deesse_t)){
+        alert('Entrez uniquement un nombre !')
+    }else {
+        fourth_part=deesse_t;
+    }
 });
 
 function setup() {
